@@ -629,29 +629,7 @@ const htmlContent = `<!DOCTYPE html>
                         </div>
                     </button>
 
-                    <!-- TempMail Promotion Card -->
-                    <div class="bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10 backdrop-blur-lg rounded-3xl p-6 border border-blue-200/30 hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] flex-1 flex flex-col justify-center">
-                        <div class="flex items-start gap-4">
-                            <div class="p-3 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl shadow-lg flex-shrink-0">
-                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                                </svg>
-                            </div>
-                            <div class="flex-1">
-                                <h3 class="text-lg font-bold text-slate-800 mb-2">Need a Temporary Email?</h3>
-                                <p class="text-slate-600 text-sm mb-4 leading-relaxed">Perfect for signing up with your new address! Get instant disposable email addresses to protect your privacy.</p>
-                                <a href="https://chat-tempmail.com" target="_blank" rel="noopener noreferrer"
-                                   class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold px-6 py-3 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg text-sm">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                                    </svg>
-                                    Get Free Temp Email
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                   
 
             <!-- Right Panel -->
             <div class="space-y-8 animate-slide-up" style="animation-delay: 0.4s;">
@@ -671,49 +649,7 @@ const htmlContent = `<!DOCTYPE html>
                     </div>
                 </div>
 
-                <!-- Featured Service Card -->
-                <div class="bg-gradient-to-br from-purple-500/10 via-blue-500/10 to-indigo-500/10 backdrop-blur-lg rounded-3xl p-8 border border-purple-200/30 hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] h-[600px] flex flex-col justify-center">
-                    <div class="text-center">
-                        <div class="inline-flex p-4 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-3xl shadow-xl mb-6">
-                            <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-slate-800 mb-4">Complete Your Privacy Setup</h3>
-                        <p class="text-slate-600 mb-6 leading-relaxed">
-                            You've got the address, now get a temporary email to go with it! Perfect for account registrations, online shopping, and protecting your real identity.
-                        </p>
-                        <div class="space-y-3 mb-6">
-                            <div class="flex items-center justify-center gap-3 text-slate-700">
-                                <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                <span class="text-sm font-medium">Instant email generation</span>
-                            </div>
-                            <div class="flex items-center justify-center gap-3 text-slate-700">
-                                <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                <span class="text-sm font-medium">No registration required</span>
-                            </div>
-                            <div class="flex items-center justify-center gap-3 text-slate-700">
-                                <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                <span class="text-sm font-medium">100% free service</span>
-                            </div>
-                        </div>
-                        <a href="https://chat-tempmail.com" target="_blank" rel="noopener noreferrer"
-                           class="inline-flex items-center gap-3 bg-gradient-to-r from-purple-500 via-indigo-600 to-blue-600 hover:from-purple-600 hover:via-indigo-700 hover:to-blue-700 text-white font-bold px-8 py-4 rounded-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl text-lg">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                            </svg>
-                            Get Temp Email Now
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
+                
 
         <!-- Saved Addresses Table -->
         <div class="mt-16 bg-white/80 backdrop-blur-lg rounded-3xl shadow-2xl p-8 border border-white/20 animate-slide-up" style="animation-delay: 0.6s;">
@@ -801,12 +737,7 @@ const htmlContent = `<!DOCTYPE html>
                     </svg>
                 </div>
                 <span class="text-lg font-semibold text-slate-300">Random Address Generator</span>
-            </div>
-            
-            <p class="text-slate-400 text-sm mb-6">
-                © <span id="currentYear"></span> <a href="https://chat-tempmail.com" target="_blank" rel="noopener noreferrer" class="text-primary-400 hover:text-primary-300 font-semibold transition-colors">ChatTempMail</a>. All rights reserved.
-            </p>
-        </div>
+         
     </footer>
 
     <script>

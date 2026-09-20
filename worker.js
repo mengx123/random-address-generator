@@ -460,7 +460,15 @@ const htmlContent = `<!DOCTYPE html>
                 <p class="text-primary-200 text-sm mt-3 font-medium tracking-wide mb-3">一键生成全球各地的真实地址</p>
                 
                 <!-- GitHub Link - Small and centered -->
-    
+                <div class="animate-fade-in" style="animation-delay: 0.3s;">
+                    <a href="https://github.com/Selenium39/random-address-generator" target="_blank" rel="noopener noreferrer" 
+                       class="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-lg border border-white/20 hover:border-white/30 transition-all duration-300 transform hover:scale-105 text-white hover:text-primary-100 shadow-md hover:shadow-lg group text-xs">
+                        <svg class="w-4 h-4 transition-transform group-hover:rotate-12" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.30.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        <span class="font-medium">在 GitHub 查看</span>
+                    </a>
+                </div>
             </div>
         </div>
     </header>
@@ -635,10 +643,52 @@ const htmlContent = `<!DOCTYPE html>
                             </svg>
                         </div>
                         <h2 class="text-2xl font-bold text-slate-700">地图预览</h2>
+                        <div class="ml-auto flex items-center gap-2">
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 rounded-xl text-xs font-semibold text-slate-600">
+                                <span id="mapSourceDot" class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+                                <span id="mapSourceName">正在初始化地图…</span>
+                            </span>
+                            <button type="button" onclick="cycleMapProvider()" title="切换地图源"
+                                    class="px-3 py-1.5 bg-white hover:bg-slate-50 border border-slate-200 hover:border-primary-300 rounded-xl text-xs font-semibold text-slate-600 hover:text-primary-600 transition-all duration-300 flex items-center gap-1.5 shadow-sm hover:shadow">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                                </svg>
+                                切换
+                            </button>
+                        </div>
                     </div>
                     <div class="relative flex-1">
                         <iframe id="map" class="w-full h-full rounded-2xl border-2 border-slate-200 shadow-lg"></iframe>
                         <div class="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent rounded-2xl pointer-events-none"></div>
+
+                        <!-- 地图全部加载失败时的兜底提示 -->
+                        <div id="mapFallback" class="hidden absolute inset-0 bg-white/95 backdrop-blur-sm rounded-2xl border-2 border-slate-200 flex-col items-center justify-center gap-4 p-8 text-center">
+                            <div class="p-3 bg-amber-100 rounded-2xl">
+                                <svg class="w-8 h-8 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                                </svg>
+                            </div>
+                            <p class="text-slate-700 font-bold text-lg">地图服务暂时无法加载</p>
+                            <p id="mapFallbackAddr" class="text-slate-500 text-sm break-words max-w-md leading-relaxed"></p>
+                            <div class="flex flex-wrap items-center justify-center gap-2">
+                                <a id="openAmap" target="_blank" rel="noopener noreferrer"
+                                   class="px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white text-sm font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-md">
+                                    在高德地图打开
+                                </a>
+                                <a id="openBaidu" target="_blank" rel="noopener noreferrer"
+                                   class="px-4 py-2 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white text-sm font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-md">
+                                    在百度地图打开
+                                </a>
+                                <a id="openGoogle" target="_blank" rel="noopener noreferrer"
+                                   class="px-4 py-2 bg-white hover:bg-slate-50 border border-slate-200 text-slate-600 hover:text-primary-600 text-sm font-semibold rounded-xl transition-all duration-300 shadow-sm">
+                                    在 Google 地图打开
+                                </a>
+                            </div>
+                            <button type="button" onclick="retryMap()"
+                                    class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-600 text-sm font-semibold rounded-xl transition-all duration-300">
+                                重新加载地图
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -776,6 +826,131 @@ const htmlContent = `<!DOCTYPE html>
                 option.textContent = country.name;
                 select.appendChild(option);
             });
+        }
+
+        // ===== 地图源：Google 地图 → 高德地图 → 百度地图 自动降级 =====
+        const MAP_PROVIDERS = [
+            {
+                id: 'google',
+                label: 'Google 地图',
+                embed: (addr, lat, lng) => \`https://www.google.com/maps?q=\${encodeURIComponent(addr)}&output=embed\`,
+                link:  (addr, lat, lng) => \`https://www.google.com/maps/search/?api=1&query=\${encodeURIComponent(addr)}\`
+            },
+            {
+                id: 'amap',
+                label: '高德地图',
+                embed: (addr, lat, lng) => \`https://uri.amap.com/marker?position=\${lng},\${lat}&name=\${encodeURIComponent(addr)}&src=mypage&coordinate=gaode&callnative=0\`,
+                link:  (addr, lat, lng) => \`https://uri.amap.com/marker?position=\${lng},\${lat}&name=\${encodeURIComponent(addr)}&src=mypage&coordinate=gaode\`
+            },
+            {
+                id: 'baidu',
+                label: '百度地图',
+                embed: (addr, lat, lng) => \`https://api.map.baidu.com/marker?location=\${lat},\${lng}&title=\${encodeURIComponent(addr)}&content=\${encodeURIComponent(addr)}&output=html&coord_type=gcj02&src=webapp\`,
+                link:  (addr, lat, lng) => \`https://api.map.baidu.com/geocoder?address=\${encodeURIComponent(addr)}&output=html&src=webapp\`
+            }
+        ];
+
+        const MAP_TIMEOUT = 3000;   // 单个地图源的最长等待时间（毫秒）
+        const mapState = { address: '', lat: null, lng: null, step: 0, preferred: 0, timer: null, settled: false };
+
+        function setMapBadge(text, state) {
+            const dot = document.getElementById('mapSourceDot');
+            const name = document.getElementById('mapSourceName');
+            if (!dot || !name) return;
+            name.textContent = text;
+            const styles = {
+                loading: 'w-2 h-2 rounded-full bg-amber-400 animate-pulse',
+                ok: 'w-2 h-2 rounded-full bg-emerald-500',
+                fail: 'w-2 h-2 rounded-full bg-red-500'
+            };
+            dot.className = styles[state] || styles.loading;
+        }
+
+        // 按 step 逐个尝试地图源，全部失败才显示兜底提示
+        function tryMapProvider(step) {
+            clearTimeout(mapState.timer);
+            mapState.settled = false;
+            mapState.step = step;
+            const total = MAP_PROVIDERS.length;
+
+            if (step >= total) {
+                showMapFallback();
+                return;
+            }
+
+            const index = (mapState.preferred + step) % total;
+            const provider = MAP_PROVIDERS[index];
+            const iframe = document.getElementById('map');
+
+            setMapBadge(provider.label + ' 加载中…', 'loading');
+
+            iframe.onload = function () {
+                if (mapState.settled) return;
+                mapState.settled = true;
+                clearTimeout(mapState.timer);
+                mapState.preferred = index;   // 记住可用的源，下次直接从它开始
+                setMapBadge(provider.label, 'ok');
+            };
+
+            iframe.onerror = function () {
+                if (mapState.settled) return;
+                tryMapProvider(step + 1);
+            };
+
+            iframe.src = provider.embed(mapState.address, mapState.lat, mapState.lng);
+
+            // 超时未加载完成（被墙 / 网络不通时 iframe 往往既不 load 也不 error）
+            mapState.timer = setTimeout(function () {
+                if (!mapState.settled) tryMapProvider(step + 1);
+            }, MAP_TIMEOUT);
+        }
+
+        function loadMap(address, lat, lng) {
+            mapState.address = address || '';
+            mapState.lat = lat;
+            mapState.lng = lng;
+            hideMapFallback();
+            tryMapProvider(0);
+        }
+
+        function showMapFallback() {
+            clearTimeout(mapState.timer);
+            const iframe = document.getElementById('map');
+            iframe.onload = null;
+            iframe.onerror = null;
+            iframe.src = 'about:blank';
+            setMapBadge('地图均不可用', 'fail');
+
+            document.getElementById('mapFallbackAddr').textContent = mapState.address;
+            const args = [mapState.address, mapState.lat, mapState.lng];
+            document.getElementById('openGoogle').href = MAP_PROVIDERS[0].link.apply(null, args);
+            document.getElementById('openAmap').href = MAP_PROVIDERS[1].link.apply(null, args);
+            document.getElementById('openBaidu').href = MAP_PROVIDERS[2].link.apply(null, args);
+
+            const box = document.getElementById('mapFallback');
+            box.classList.remove('hidden');
+            box.classList.add('flex');
+        }
+
+        function hideMapFallback() {
+            const box = document.getElementById('mapFallback');
+            if (!box) return;
+            box.classList.add('hidden');
+            box.classList.remove('flex');
+        }
+
+        function retryMap() {
+            hideMapFallback();
+            tryMapProvider(0);
+        }
+
+        // 手动切换到下一个地图源
+        function cycleMapProvider() {
+            const total = MAP_PROVIDERS.length;
+            mapState.preferred = (mapState.preferred + 1) % total;
+            hideMapFallback();
+            tryMapProvider(0);
+            showMessage('已切换到 ' + MAP_PROVIDERS[mapState.preferred].label);
         }
 
         // Copy to clipboard
@@ -946,7 +1121,7 @@ const htmlContent = `<!DOCTYPE html>
                 document.getElementById('address').textContent = data.address;
                 
                 // Update map
-                document.getElementById('map').src = \`https://www.google.com/maps?q=\${encodeURIComponent(data.address)}&output=embed\`;
+                loadMap(data.address, data.coordinates ? data.coordinates.lat : null, data.coordinates ? data.coordinates.lng : null);
             } catch (error) {
                 console.error('Error fetching address:', error);
                 alert('获取地址时出错，请重试');

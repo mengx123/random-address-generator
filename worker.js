@@ -307,11 +307,11 @@ const corsHeaders = {
 
 // HTML template
 const htmlContent = `<!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Address Generator</title>
+    <title>随机地址生成器</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <script>
@@ -349,6 +349,9 @@ const htmlContent = `<!DOCTYPE html>
                             '100%': { opacity: '1' }
                         }
                     },
+                    fontFamily: {
+                        'sans': ['Inter', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', 'sans-serif'],
+                    },
                     colors: {
                         primary: {
                             50: '#f0f9ff',
@@ -380,7 +383,7 @@ const htmlContent = `<!DOCTYPE html>
         }
     </script>
 </head>
-<body class="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 text-slate-800 min-h-screen font-['Inter'] relative overflow-x-hidden">
+<body class="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 text-slate-800 min-h-screen font-sans relative overflow-x-hidden">
     <!-- Background Decorations -->
     <div class="fixed inset-0 overflow-hidden pointer-events-none">
         <div class="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-primary-200/30 to-accent-200/30 rounded-full blur-3xl animate-pulse-slow"></div>
@@ -450,11 +453,11 @@ const htmlContent = `<!DOCTYPE html>
                     </div>
                     <div>
                         <h1 class="text-4xl font-bold bg-gradient-to-r from-white via-primary-100 to-white bg-clip-text text-transparent">
-                            Random Address Generator
+                            随机地址生成器
                         </h1>
                     </div>
                 </div>
-                <p class="text-primary-200 text-sm mt-3 font-medium tracking-wide mb-3">Generate realistic addresses worldwide</p>
+                <p class="text-primary-200 text-sm mt-3 font-medium tracking-wide mb-3">一键生成全球各地的真实地址</p>
                 
                 <!-- GitHub Link - Small and centered -->
                 <div class="animate-fade-in" style="animation-delay: 0.3s;">
@@ -463,7 +466,7 @@ const htmlContent = `<!DOCTYPE html>
                         <svg class="w-4 h-4 transition-transform group-hover:rotate-12" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.30.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                         </svg>
-                        <span class="font-medium">View on GitHub</span>
+                        <span class="font-medium">在 GitHub 查看</span>
                     </a>
                 </div>
             </div>
@@ -479,8 +482,8 @@ const htmlContent = `<!DOCTYPE html>
                     <div class="animate-spin rounded-full h-20 w-20 border-4 border-primary-200"></div>
                     <div class="animate-spin rounded-full h-20 w-20 border-t-4 border-primary-500 absolute top-0"></div>
                 </div>
-                <div class="text-slate-700 text-xl font-semibold mt-6 animate-pulse">Generating address...</div>
-                <div class="text-slate-500 text-sm mt-2">Please wait a moment</div>
+                <div class="text-slate-700 text-xl font-semibold mt-6 animate-pulse">正在生成地址...</div>
+                <div class="text-slate-500 text-sm mt-2">请稍候片刻</div>
             </div>
         </div>
 
@@ -489,7 +492,7 @@ const htmlContent = `<!DOCTYPE html>
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                 </svg>
-                <span class="font-semibold">Copied to clipboard!</span>
+                <span class="font-semibold">已复制到剪贴板！</span>
             </div>
         </div>
 
@@ -501,7 +504,7 @@ const htmlContent = `<!DOCTYPE html>
                         <svg class="w-6 h-6 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
-                        Select Country/Region
+                        选择国家 / 地区
                     </label>
                     <select id="country" 
                             onchange="changeCountry(this.value)" 
@@ -514,7 +517,7 @@ const htmlContent = `<!DOCTYPE html>
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
                         </svg>
-                        Generate New Address
+                        生成新地址
                     </div>
                 </button>
             </div>
@@ -531,7 +534,7 @@ const htmlContent = `<!DOCTYPE html>
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                             </svg>
                         </div>
-                        <h2 class="text-2xl font-bold text-slate-700">Personal Information</h2>
+                        <h2 class="text-2xl font-bold text-slate-700">个人信息</h2>
                     </div>
                     <div class="space-y-5 flex-1 overflow-hidden">
                         <div class="group bg-gradient-to-r from-slate-50 to-blue-50/50 p-5 rounded-2xl cursor-pointer hover:from-primary-50 hover:to-primary-100/50 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl border border-slate-200/50" 
@@ -544,8 +547,8 @@ const htmlContent = `<!DOCTYPE html>
                                         </svg>
                                     </div>
                                     <div>
-                                        <strong class="text-slate-600 font-semibold text-sm uppercase tracking-wide">Name</strong>
-                                        <div id="name" class="text-slate-800 font-bold text-lg mt-1">Loading...</div>
+                                        <strong class="text-slate-600 font-semibold text-sm tracking-wide">姓名</strong>
+                                        <div id="name" class="text-slate-800 font-bold text-lg mt-1">加载中...</div>
                                     </div>
                                 </div>
                                 <svg class="w-5 h-5 text-slate-400 group-hover:text-primary-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -563,8 +566,8 @@ const htmlContent = `<!DOCTYPE html>
                                         </svg>
                                     </div>
                                     <div>
-                                        <strong class="text-slate-600 font-semibold text-sm uppercase tracking-wide">Gender</strong>
-                                        <div id="gender" class="text-slate-800 font-bold text-lg mt-1">Loading...</div>
+                                        <strong class="text-slate-600 font-semibold text-sm tracking-wide">性别</strong>
+                                        <div id="gender" class="text-slate-800 font-bold text-lg mt-1">加载中...</div>
                                     </div>
                                 </div>
                                 <svg class="w-5 h-5 text-slate-400 group-hover:text-primary-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -582,8 +585,8 @@ const htmlContent = `<!DOCTYPE html>
                                         </svg>
                                     </div>
                                     <div>
-                                        <strong class="text-slate-600 font-semibold text-sm uppercase tracking-wide">Phone</strong>
-                                        <div id="phone" class="text-slate-800 font-bold text-lg mt-1">Loading...</div>
+                                        <strong class="text-slate-600 font-semibold text-sm tracking-wide">电话</strong>
+                                        <div id="phone" class="text-slate-800 font-bold text-lg mt-1">加载中...</div>
                                     </div>
                                 </div>
                                 <svg class="w-5 h-5 text-slate-400 group-hover:text-primary-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -602,8 +605,8 @@ const htmlContent = `<!DOCTYPE html>
                                         </svg>
                                     </div>
                                     <div class="flex-1 min-w-0">
-                                        <strong class="text-slate-600 font-semibold text-sm uppercase tracking-wide">Address</strong>
-                                        <div id="address" class="text-slate-800 font-bold text-base mt-1 break-words overflow-wrap-anywhere leading-relaxed">Loading...</div>
+                                        <strong class="text-slate-600 font-semibold text-sm tracking-wide">地址</strong>
+                                        <div id="address" class="text-slate-800 font-bold text-base mt-1 break-words overflow-wrap-anywhere leading-relaxed">加载中...</div>
                                     </div>
                                 </div>
                                 <svg class="w-5 h-5 text-slate-400 group-hover:text-primary-500 transition-colors flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -623,7 +626,7 @@ const htmlContent = `<!DOCTYPE html>
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"></path>
                             </svg>
-                            Save Address
+                            保存地址
                         </div>
                     </button>
                 </div>
@@ -639,7 +642,7 @@ const htmlContent = `<!DOCTYPE html>
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
                             </svg>
                         </div>
-                        <h2 class="text-2xl font-bold text-slate-700">Map Preview</h2>
+                        <h2 class="text-2xl font-bold text-slate-700">地图预览</h2>
                     </div>
                     <div class="relative flex-1">
                         <iframe id="map" class="w-full h-full rounded-2xl border-2 border-slate-200 shadow-lg"></iframe>
@@ -657,7 +660,7 @@ const htmlContent = `<!DOCTYPE html>
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 9a2 2 0 00-2 2v2m0 0V9a2 2 0 012-2m0 0V7a2 2 0 012-2h12a2 2 0 012 2v2M7 7h10"></path>
                     </svg>
                 </div>
-                <h2 class="text-2xl font-bold text-slate-700">Saved Addresses</h2>
+                <h2 class="text-2xl font-bold text-slate-700">已保存的地址</h2>
             </div>
             <div class="overflow-x-auto">
                 <div class="min-w-full">
@@ -670,7 +673,7 @@ const htmlContent = `<!DOCTYPE html>
                                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                                             </svg>
-                                            Name
+                                            姓名
                                         </div>
                                     </th>
                                     <th class="p-6 text-left font-bold text-sm uppercase tracking-wider">
@@ -678,7 +681,7 @@ const htmlContent = `<!DOCTYPE html>
                                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
                                             </svg>
-                                            Gender
+                                            性别
                                         </div>
                                     </th>
                                     <th class="p-6 text-left font-bold text-sm uppercase tracking-wider">
@@ -686,7 +689,7 @@ const htmlContent = `<!DOCTYPE html>
                                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
                                             </svg>
-                                            Phone
+                                            电话
                                         </div>
                                     </th>
                                     <th class="p-6 text-left font-bold text-sm uppercase tracking-wider">
@@ -695,7 +698,7 @@ const htmlContent = `<!DOCTYPE html>
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                             </svg>
-                                            Address
+                                            地址
                                         </div>
                                     </th>
                                     <th class="p-6 text-left font-bold text-sm uppercase tracking-wider">
@@ -703,7 +706,7 @@ const htmlContent = `<!DOCTYPE html>
                                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
                                             </svg>
-                                            Notes
+                                            备注
                                         </div>
                                     </th>
                                     <th class="p-6 text-left font-bold text-sm uppercase tracking-wider">
@@ -711,7 +714,7 @@ const htmlContent = `<!DOCTYPE html>
                                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"></path>
                                             </svg>
-                                            Actions
+                                            操作
                                         </div>
                                     </th>
                                 </tr>
@@ -734,11 +737,11 @@ const htmlContent = `<!DOCTYPE html>
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                     </svg>
                 </div>
-                <span class="text-lg font-semibold text-slate-300">Random Address Generator</span>
+                <span class="text-lg font-semibold text-slate-300">随机地址生成器</span>
             </div>
             
             <p class="text-slate-400 text-sm mb-6">
-                © <span id="currentYear"></span> Random Address Generator. All rights reserved.
+                © <span id="currentYear"></span> 随机地址生成器 版权所有
             </p>
         </div>
     </footer>
@@ -746,30 +749,30 @@ const htmlContent = `<!DOCTYPE html>
     <script>
         // Country data
         const countries = [
-            { name: "United States", code: "US" },
-            { name: "United Kingdom", code: "UK" },
-            { name: "France", code: "FR" },
-            { name: "Germany", code: "DE" },
-            { name: "China", code: "CN" },
-            { name: "Taiwan", code: "TW" },
-            { name: "Hong Kong", code: "HK" },
-            { name: "Japan", code: "JP" },
-            { name: "India", code: "IN" },
-            { name: "Australia", code: "AU" },
-            { name: "Brazil", code: "BR" },
-            { name: "Canada", code: "CA" },
-            { name: "Russia", code: "RU" },
-            { name: "South Africa", code: "ZA" },
-            { name: "Mexico", code: "MX" },
-            { name: "South Korea", code: "KR" },
-            { name: "Italy", code: "IT" },
-            { name: "Spain", code: "ES" },
-            { name: "Turkey", code: "TR" },
-            { name: "Saudi Arabia", code: "SA" },
-            { name: "Argentina", code: "AR" },
-            { name: "Egypt", code: "EG" },
-            { name: "Nigeria", code: "NG" },
-            { name: "Indonesia", code: "ID" }
+            { name: "美国", code: "US" },
+            { name: "英国", code: "UK" },
+            { name: "法国", code: "FR" },
+            { name: "德国", code: "DE" },
+            { name: "中国", code: "CN" },
+            { name: "台湾", code: "TW" },
+            { name: "香港", code: "HK" },
+            { name: "日本", code: "JP" },
+            { name: "印度", code: "IN" },
+            { name: "澳大利亚", code: "AU" },
+            { name: "巴西", code: "BR" },
+            { name: "加拿大", code: "CA" },
+            { name: "俄罗斯", code: "RU" },
+            { name: "南非", code: "ZA" },
+            { name: "墨西哥", code: "MX" },
+            { name: "韩国", code: "KR" },
+            { name: "意大利", code: "IT" },
+            { name: "西班牙", code: "ES" },
+            { name: "土耳其", code: "TR" },
+            { name: "沙特阿拉伯", code: "SA" },
+            { name: "阿根廷", code: "AR" },
+            { name: "埃及", code: "EG" },
+            { name: "尼日利亚", code: "NG" },
+            { name: "印度尼西亚", code: "ID" }
         ];
 
         // Initialize country selection dropdown
@@ -785,14 +788,14 @@ const htmlContent = `<!DOCTYPE html>
 
         // Copy to clipboard
         function copyToClipboard(text) {
-            if (!text || text.trim() === '' || text === 'Loading...') {
-                showMessage('No content to copy', 'error');
+            if (!text || text.trim() === '' || text === '加载中...') {
+                showMessage('没有可复制的内容', 'error');
                 return;
             }
 
             if (navigator.clipboard && navigator.clipboard.writeText) {
                 navigator.clipboard.writeText(text).then(() => {
-                    showMessage('Copied to clipboard!', 'success');
+                    showMessage('已复制到剪贴板！', 'success');
                 }).catch(err => {
                     console.error('Failed to copy: ', err);
                     fallbackCopyTextToClipboard(text);
@@ -818,13 +821,13 @@ const htmlContent = `<!DOCTYPE html>
             try {
                 const successful = document.execCommand('copy');
                 if (successful) {
-                    showMessage('Copied to clipboard!', 'success');
+                    showMessage('已复制到剪贴板！', 'success');
                 } else {
-                    showMessage('Failed to copy', 'error');
+                    showMessage('复制失败', 'error');
                 }
             } catch (err) {
                 console.error('Fallback: Could not copy text: ', err);
-                showMessage('Copy not supported', 'error');
+                showMessage('当前浏览器不支持复制', 'error');
             }
             
             document.body.removeChild(textArea);
@@ -878,7 +881,7 @@ const htmlContent = `<!DOCTYPE html>
 
         // Save address
         function saveAddress() {
-            const note = prompt('Enter a note (optional):') || '';
+            const note = prompt('请输入备注（可选）：') || '';
             const savedAddresses = JSON.parse(localStorage.getItem('savedAddresses') || '[]');
             const newEntry = {
                 note: note,
@@ -909,10 +912,10 @@ const htmlContent = `<!DOCTYPE html>
                     
                     if (i === cells.length - 1) {
                         const deleteBtn = document.createElement('button');
-                        deleteBtn.innerHTML = '<div class="flex items-center gap-2"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>Delete</div>';
+                        deleteBtn.innerHTML = '<div class="flex items-center gap-2"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>删除</div>';
                         deleteBtn.className = 'bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-4 py-2 rounded-xl transition-all duration-300 transform hover:scale-105 focus:ring-4 focus:ring-red-200 focus:ring-opacity-50 shadow-lg hover:shadow-xl text-sm font-semibold';
                         deleteBtn.onclick = () => {
-                            if (confirm('Are you sure you want to delete this record?')) {
+                            if (confirm('确定要删除这条记录吗？')) {
                                 savedAddresses.splice(index, 1);
                                 localStorage.setItem('savedAddresses', JSON.stringify(savedAddresses));
                                 renderSavedAddresses();
@@ -954,7 +957,7 @@ const htmlContent = `<!DOCTYPE html>
                 document.getElementById('map').src = \`https://www.google.com/maps?q=\${encodeURIComponent(data.address)}&output=embed\`;
             } catch (error) {
                 console.error('Error fetching address:', error);
-                alert('Error occurred while fetching address, please try again');
+                alert('获取地址时出错，请重试');
             } finally {
                 toggleLoading(false);
             }
@@ -1009,7 +1012,7 @@ async function handleApiRequest(request) {
 
     if (!countryCoordinates[country]) {
         return new Response(JSON.stringify({
-            error: 'Invalid country code'
+            error: '无效的国家代码'
         }), {
             status: 400,
             headers: {
@@ -1062,7 +1065,7 @@ async function handleApiRequest(request) {
                 const address = `${houseNumber} ${road}, ${city}, ${postcode}, ${country}`.replace(/\s+/g, ' ').trim();
                 
                 const name = getRandomName(country);
-                const gender = Math.random() > 0.5 ? 'Male' : 'Female';
+                const gender = Math.random() > 0.5 ? '男' : '女';
                 const phone = getRandomPhoneNumber(country);
                 
                 const result = {
@@ -1119,7 +1122,7 @@ async function handleApiRequest(request) {
                 const randomAddress = addresses[Math.floor(Math.random() * addresses.length)];
                 
                 const name = getRandomName(country);
-                const gender = Math.random() > 0.5 ? 'Male' : 'Female';
+                const gender = Math.random() > 0.5 ? '男' : '女';
                 const phone = getRandomPhoneNumber(country);
                 
                 const result = {
@@ -1154,7 +1157,7 @@ async function handleApiRequest(request) {
     }
     
     return new Response(JSON.stringify({
-        error: 'Failed to generate valid address after multiple attempts'
+        error: '多次尝试后仍未能生成有效地址，请重试'
     }), {
         status: 500,
         headers: {

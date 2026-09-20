@@ -312,7 +312,6 @@ const htmlContent = `<!DOCTYPE html>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Address Generator</title>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3914969090265698" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <script>
@@ -380,7 +379,6 @@ const htmlContent = `<!DOCTYPE html>
             }
         }
     </script>
-    <script defer src="https://umami.selenium39.me/script.js" data-website-id="7a287b36-c5a5-41dd-9b39-d90d0cb70cce"></script>
 </head>
 <body class="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 text-slate-800 min-h-screen font-['Inter'] relative overflow-x-hidden">
     <!-- Background Decorations -->
@@ -617,7 +615,7 @@ const htmlContent = `<!DOCTYPE html>
                 </div>
 
                 <!-- Combined Action Section -->
-                <div class="h-[600px] flex flex-col space-y-6">
+                <div class="flex flex-col space-y-6">
                     <!-- Save Button -->
                     <button onclick="saveAddress()" 
                             class="w-full bg-gradient-to-r from-emerald-500 via-green-500 to-emerald-600 hover:from-emerald-600 hover:via-green-600 hover:to-emerald-700 text-white font-bold text-lg py-5 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl focus:ring-4 focus:ring-emerald-200 focus:ring-opacity-50 shadow-xl border border-emerald-400/20">
@@ -628,13 +626,13 @@ const htmlContent = `<!DOCTYPE html>
                             Save Address
                         </div>
                     </button>
-
-                   
+                </div>
+            </div>
 
             <!-- Right Panel -->
             <div class="space-y-8 animate-slide-up" style="animation-delay: 0.4s;">
                 <!-- Map -->
-                <div class="bg-white/80 backdrop-blur-lg rounded-3xl shadow-2xl p-8 border border-white/20 hover:shadow-3xl transition-all duration-500 h-[600px] flex flex-col">
+                <div class="bg-white/80 backdrop-blur-lg rounded-3xl shadow-2xl p-8 border border-white/20 hover:shadow-3xl transition-all duration-500 h-full min-h-[600px] flex flex-col">
                     <div class="flex items-center gap-3 mb-8">
                         <div class="p-3 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl shadow-lg">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -648,8 +646,8 @@ const htmlContent = `<!DOCTYPE html>
                         <div class="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent rounded-2xl pointer-events-none"></div>
                     </div>
                 </div>
-
-                
+            </div>
+        </div>
 
         <!-- Saved Addresses Table -->
         <div class="mt-16 bg-white/80 backdrop-blur-lg rounded-3xl shadow-2xl p-8 border border-white/20 animate-slide-up" style="animation-delay: 0.6s;">
@@ -737,7 +735,12 @@ const htmlContent = `<!DOCTYPE html>
                     </svg>
                 </div>
                 <span class="text-lg font-semibold text-slate-300">Random Address Generator</span>
-         
+            </div>
+            
+            <p class="text-slate-400 text-sm mb-6">
+                © <span id="currentYear"></span> Random Address Generator. All rights reserved.
+            </p>
+        </div>
     </footer>
 
     <script>
